@@ -1,7 +1,9 @@
 "use client";
-import { Spinner } from "@/components/spinner";
+
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
+
+import { Spinner } from "@/components/spinner";
 import { Navigation } from "./_components/Navigation";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -9,8 +11,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   if (isLoading) {
     return (
-      <div className="h-full flex items-center justify-center">
-        <Spinner size="lg" />
+      <div className='h-full flex items-center justify-center'>
+        <Spinner size='lg' />
       </div>
     );
   }
@@ -20,9 +22,10 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="h-full flex dark:bg-[#1F1F1F]">
-      <main className="flex-1 h-full">
-        <Navigation />
+    <div className='h-full flex dark:bg-[#1F1F1F]'>
+      <Navigation />
+      <main className='flex-1 h-full overflow-y-auto'>
+        {/* <SearchCommand /> */}
         {children}
       </main>
     </div>
